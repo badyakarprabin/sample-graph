@@ -2,19 +2,6 @@ import React, { Component } from 'react';
 import { core as ZingChart } from 'zingchart-react';
 
 class Gauge extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-        };
-    }
-
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
-    }
-
     render() {
         var myConfig = {
             backgroundColor: 'none',
@@ -85,6 +72,11 @@ class Gauge extends Component {
             },
             series: [
                 {
+                    "animation": {
+                        "method": 5,
+                        "effect": 2,
+                        "speed": 2500
+                    },
                     text: "Internal",
                     values: [10],
                     lineColor: "#00BAF2",
@@ -95,7 +87,7 @@ class Gauge extends Component {
         };
         var myDataSimple = {
             "type": "gauge",
-            "background-color": "black",
+            backgroundColor: 'none',
             "scale-r": {
                 "values": "-10:10:5",
                 "line-color": "none",
@@ -154,6 +146,11 @@ class Gauge extends Component {
             ],
             "series": [
                 {
+                    "animation": {
+                        "method": 5,
+                        "effect": 2,
+                        "speed": 2500
+                    },
                     "values": [10],
                     "background-color": "limeGreen",
                     "shadow": false,
@@ -163,9 +160,15 @@ class Gauge extends Component {
             ]
         };
         return (
-            <div className="Gauge">
-                <ZingChart id="chart2" height="300" width="600" data={myDataSimple} />
-                <ZingChart id="chart2" height="300" width="600" data={myConfig} />
+            <div className="container">
+                <div className="rows">
+                    <div className='col-lg-6'>
+                        <ZingChart id="chart1" height="300" width="600" data={myDataSimple} />
+                    </div>
+                    <div className='col-lg-6'>
+                        <ZingChart id="chart2" height="300" width="600" data={myConfig} />
+                    </div>
+                </div>
             </div>
         );
     }
