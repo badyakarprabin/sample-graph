@@ -85,6 +85,10 @@ var myConfig = {
 };
 var myDataSimple = {
     "type": "gauge",
+    scaleR: {
+        minValue: -10.00,
+        maxValue: 10.00,
+    },
     backgroundColor: 'none',
     "scale-r": {
         "values": "-10:10:5",
@@ -126,7 +130,7 @@ var myDataSimple = {
                     "border-width": 0
                 },
                 {
-                    "rule": "%v>=0",
+                    "rule": "%v>=0 && %v<=10",
                     "background-color": "green",
                     "border-width": 0
                 }
@@ -161,19 +165,18 @@ var myDataSimple = {
         type: 'feed',
         transport: 'js',
         url: 'feed()',
-        interval: 3000
+        interval: 5000
     },
 };
 
 window.feed = function (callback) {
     var tick = {};
-    tick.plot0 = Math.ceil((Math.random() * 10));
+    tick.plot0 = Math.random();
     callback(JSON.stringify(tick));
 };
 
 class Gauge extends Component {
     render() {
-
         return (
             <div className="container">
                 <div className='header'>Analog Meter : Sample Meter </div>

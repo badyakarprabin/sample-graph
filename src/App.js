@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.css';
-import { Navbar, NavItem, Nav } from 'react-bootstrap';
-import TimeLine from './TimeLine';
-import Guage from './Gauge';
-
 import { core as ZingChart } from 'zingchart-react';
+import { Navbar, NavItem, Nav } from 'react-bootstrap';
+
+import './App.css';
 import Gauge from './Gauge';
+import TimeLine from './TimeLine';
 
 // Component which contains the dynamic state for the chart
 const App = () => {
@@ -14,17 +13,9 @@ const App = () => {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#home">React-Bootstrap</a>
+            <a href="#home">IDS: Sample Graph</a>
           </Navbar.Brand>
         </Navbar.Header>
-        <Nav>
-          <NavItem eventKey={1} href="#">
-            Link
-			</NavItem>
-          <NavItem eventKey={2} href="#">
-            Link
-			</NavItem>
-        </Nav>
       </Navbar>
       <Gauge />
       <TimeLine />
