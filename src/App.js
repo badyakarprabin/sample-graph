@@ -17,9 +17,9 @@ const App = () => {
           </Navbar.Brand>
         </Navbar.Header>
       </Navbar>
-      {/* <Opentok /> */}
-      <Gauge />
-      <TimeLine />
+      <Opentok />
+      {/* <Gauge /> */}
+      {/* <TimeLine /> */}
     </div>
   );
 }
