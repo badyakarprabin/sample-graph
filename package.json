@@ -1,10 +1,13 @@
 {
-  "name": "sample-data",
+  "name": "sample-graph",
   "version": "0.1.0",
+  "homepage": "http://badyakarprabin.github.io/sample-graph",
   "private": true,
   "dependencies": {
     "@amcharts/amcharts3-react": "^3.0.4",
     "bootstrap": "3",
+    "gh-pages": "^1.1.0",
+    "opentok-react": "^0.7.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0",
@@ -14,6 +17,8 @@
     "zingchart-react": "^1.0.6"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
