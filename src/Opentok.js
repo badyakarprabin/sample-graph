@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { OTSession, OTPublisher, OTStreams, OTSubscriber, createSession } from 'opentok-react';
 
+const API_KEY = '46044372';
+const SESSION_ID = '1_MX40NjA0NDM3Mn5-MTUxNjgxMTkwNjA1Mn5hdFZ2YnlEZDhRNm16NGR0em1CSnBBWUt-fg';
+const TOKEN = 'T1==cGFydG5lcl9pZD00NjA0NDM3MiZzaWc9NjViNTQ0YTdkZmY3YmE5NzgwNDU5NjJmNWEzNDZlZWNjMzk1NmY2NDpzZXNzaW9uX2lkPTFfTVg0ME5qQTBORE0zTW41LU1UVXhOamd4TVRrd05qQTFNbjVoZEZaMllubEVaRGhSTm0xNk5HUjBlbTFDU25CQldVdC1mZyZjcmVhdGVfdGltZT0xNTE2ODExOTMzJm5vbmNlPTAuNzc3MDAxMzQ4NjU4NzcxOSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTE2ODMzNTMxJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9';
+
 class Opentok extends React.Component {
     constructor(props) {
         super(props);
         this.state = { streams: [] };
-    }
-
-    componentWillMount() {
-        this.sessionHelper = createSession({
-            apiKey: '46044372',
-            sessionId: '1_MX40NjA0NDM3Mn5-MTUxNjY0MjM0MDQ4N35sYkJwemRjV3duem9KQlRDUlVmM3BFQnZ-fg',
-            token: 'T1==cGFydG5lcl9pZD00NjA0NDM3MiZzaWc9MTZlNjA2ODhiNTQ4YjQ4NDY3N2E5Y2ViODc5MjE5NTg0NWUzNmYzNDpzZXNzaW9uX2lkPTFfTVg0ME5qQTBORE0zTW41LU1UVXhOalkwTWpNME1EUTROMzVzWWtKd2VtUmpWM2R1ZW05S1FsUkRVbFZtTTNCRlFuWi1mZyZjcmVhdGVfdGltZT0xNTE2NjQyMzU3Jm5vbmNlPTAuMzAzOTgwMzk1NDk4MzA2MjQmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTUxNjY0NTk1NyZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==',
-            onStreamsUpdated: streams => { this.setState({ streams }); }
-        });
     }
 
     componentWillUnmount() {
@@ -23,17 +18,15 @@ class Opentok extends React.Component {
     render() {
         return (
             <div>
-                <OTPublisher session={this.sessionHelper.session} />
+                <OTSession apiKey={API_KEY} sessionId={SESSION_ID} token={TOKEN}>
+                    <div>Starter</div>
+                    <OTPublisher />
 
-                {this.state.streams.map(stream => {
-                    return (
-                        <OTSubscriber
-                            key={stream.id}
-                            session={this.sessionHelper.session}
-                            stream={stream}
-                        />
-                    );
-                })}
+                    <div>Viewer</div>
+                    <OTStreams>
+                        <OTSubscriber />
+                    </OTStreams>
+                </OTSession>
             </div>
         );
     }
