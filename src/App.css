@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -42,4 +38,94 @@
 #chartdiv {
 	width: 100%;
 	height: 100%;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.App-header {
+    background-color: #222;
+    height: 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.App-header h1 {
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.App-logo {
+    height: 60%;
+    width: auto;
+}
+
+.App-main {
+    position: relative;
+    width: 75vw;
+    height: calc(75vw * .6);
+    margin: 10px auto;
+    border: 1px solid lightblue;
+}
+
+.App-control-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.App-control-container.hidden {
+    display: none;
+}
+
+.App-control-container .ots-video-control {
+    width: 50px;
+    height: 50px;
+    margin: 20px 0 !important;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-position: center;
+    background-color: rgba(27, 134, 144, 0.4);
+    background-color: lightgrey;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.App-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cameraPublisherContainer {
+    width: 500px;
+    height: 400px;
+}
+
+#cameraSubscriberContainer{
+    width: 100px;
+    height: 100px;
+}
+
+.ots-text-chat-container {
+    width: 300px;
+    margin-top: -20px;
 }

@@ -310,6 +310,12 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
+axios@^0.15.3:
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.15.3.tgz#2c9d638b2e191a08ea1d6cc988eadd6ba5bdc053"
+  dependencies:
+    follow-redirects "1.0.0"
+
 axobject-query@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-0.1.0.tgz#62f59dbc59c9f9242759ca349960e7a2fe3c36c0"
@@ -2622,6 +2628,12 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+follow-redirects@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.0.0.tgz#8e34298cbd2e176f254effec75a1c78cc849fd37"
+  dependencies:
+    debug "^2.2.0"
+
 for-in@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -3690,6 +3702,10 @@ jest@20.0.4:
   dependencies:
     jest-cli "^20.0.4"
 
+jquery@^3.1.0:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+
 js-base64@^2.1.9:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.1.tgz#e02813181cd53002888e918935467acb2910e596"
@@ -3844,6 +3860,10 @@ klaw@^1.0.0:
   resolved "https://registry.yarnpkg.com/klaw/-/klaw-1.3.1.tgz#4088433b46b3b1ba259d78785d8e96f73ba02439"
   optionalDependencies:
     graceful-fs "^4.1.9"
+
+kuende-livestamp@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/kuende-livestamp/-/kuende-livestamp-1.1.2.tgz#27392dd8ce018898d6965f10dfbf003eacbc8335"
 
 latest-version@^2.0.0:
   version "2.0.0"
@@ -4179,6 +4199,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
+moment@^2.14.1:
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -4411,6 +4435,12 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
+opentok-accelerator-core@^2.0.14:
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/opentok-accelerator-core/-/opentok-accelerator-core-2.0.14.tgz#062489cdc4c16c6d9fab476072473f7ca702bd57"
+  dependencies:
+    opentok-solutions-logging "^1.0.7"
+
 opentok-react@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/opentok-react/-/opentok-react-0.7.0.tgz#8d97fc8076a9c7466bd9172e8a942275f73290f6"
@@ -4420,6 +4450,26 @@ opentok-react@^0.7.0:
     react-display-name "^0.2.0"
     scriptjs "^2.5.8"
     uuid "^3.0.1"
+
+opentok-solutions-css@^0.0.43:
+  version "0.0.43"
+  resolved "https://registry.yarnpkg.com/opentok-solutions-css/-/opentok-solutions-css-0.0.43.tgz#1b71e69c6787241d6ca048035556a874e9f045d0"
+
+opentok-solutions-logging@^1.0.6, opentok-solutions-logging@^1.0.7:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/opentok-solutions-logging/-/opentok-solutions-logging-1.0.11.tgz#345a003fa50a33679b1ca09e91836148626fc689"
+  dependencies:
+    axios "^0.15.3"
+
+opentok-text-chat@^1.0.30:
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/opentok-text-chat/-/opentok-text-chat-1.0.30.tgz#59f20a8f7320518e12366f9f38cdd80e7719451c"
+  dependencies:
+    jquery "^3.1.0"
+    kuende-livestamp "^1.1.2"
+    moment "^2.14.1"
+    opentok-solutions-logging "^1.0.6"
+    underscore "^1.8.3"
 
 opn@5.2.0, opn@^5.1.0:
   version "5.2.0"
@@ -6254,6 +6304,10 @@ uncontrollable@^4.1.0:
   resolved "https://registry.yarnpkg.com/uncontrollable/-/uncontrollable-4.1.0.tgz#e0358291252e1865222d90939b19f2f49f81c1a9"
   dependencies:
     invariant "^2.1.0"
+
+underscore@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
 
 uniq@^1.0.1:
   version "1.0.1"
