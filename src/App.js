@@ -13,7 +13,7 @@ const App = () => {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#home">IDS: Sample Graph</a>
+            <a href="#home">IDS: Prototype Live Session</a>
           </Navbar.Brand>
         </Navbar.Header>
       </Navbar>

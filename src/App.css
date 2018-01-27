@@ -149,3 +149,8 @@ body {
     text-align: center;
     color: white;
 }
+
+.start-call{
+    top: -70px;
+    text-align: center
+}

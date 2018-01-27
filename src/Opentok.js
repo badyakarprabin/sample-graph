@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as classNames from 'classnames';
-import AccCore from 'opentok-accelerator-core';
+
 import 'opentok-solutions-css';
+import AccCore from 'opentok-accelerator-core';
 
 const API_KEY = '46044372';
 const SESSION_ID = '2_MX40NjA0NDM3Mn5-MTUxNzAzNTM5MzAzOX5FWkxWNUNGSFNtVFNoZE5PVGdxaHh3ZU5-fg';
@@ -32,7 +33,6 @@ const otCoreOptions = {
     name: 'test',
     controlsContainer: '#controls',
     packages: ['textChat'],
-    // A container can either be a query selector or an HTML Element
     communication: {
         callProperites: {
             style: {
@@ -42,7 +42,7 @@ const otCoreOptions = {
         }
     },
     textChat: {
-        name: ['Test1', 'Test2', 'Test3', 'Test4'][Math.random() * 4 | 0], // eslint-disable-line no-bitwise
+        name: ['Demo-Ram', 'Demo-Hari', 'Demo-Shyam', 'Demo-Krishna'][Math.random() * 4 | 0], // eslint-disable-line no-bitwise
         waitingMessage: 'Messages will be delivered when other users arrive',
         container: '#chat',
     }
@@ -52,7 +52,7 @@ class Opentok extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isPublisher: false
+            isActive: false
         }
     }
     componentDidMount() {
@@ -60,6 +60,10 @@ class Opentok extends React.Component {
         otCore = new AccCore(otCoreOptions);
         otCore.connect()
             .then(({ publishers, subscribers, meta }) => {
+                this.setState({
+                    isActive: true,
+                    isOnCall: false,
+                })
             });
     }
 
@@ -70,17 +74,17 @@ class Opentok extends React.Component {
     startCall() {
         otCore.startCall()
             .then(({ publishers, subscribers, meta }) => {
-                if (meta && meta.subscriber && meta.subscriber.camera === 1)
-                    otCore.subscribe();
                 this.setState({
-                    isPublisher: true
+                    isOnCall: true
                 })
-                console.log(publishers, subscribers, meta)
             })
     }
 
     endCall() {
         otCore.endCall();
+        this.setState({
+            isOnCall: false
+        })
     }
 
     toggleLocalAudio() {
@@ -88,12 +92,15 @@ class Opentok extends React.Component {
     }
 
     render() {
+        let active = classNames({
+            'disabled': !this.state.isActive
+        })
         return (
             <div>
 
                 <div className='container'>
 
-                    <div className='overlay'> Click on start video to start sreaming </div>
+                    <div className='overlay'></div>
                     <div className='row'>
                         <div className='col-lg-5'>
                             <div className="App-video-container">
@@ -107,20 +114,26 @@ class Opentok extends React.Component {
                             <div id="chat" className="App-chat-container" />
                         </div>
                     </div>
-                    <div id='controls' className='col-lg-5 App-control-container'>
-                        <div className='ots-video-control circle audio' onClick={this.toggleLocalAudio} />
-
-                        <div className="ots-video-control circle end-call" onClick={() => this.endCall()} />
+                    <div className='row'>
+                        <div id='controls' className='col-lg-5 App-control-container'>
+                            {this.setState.isOnCall &&
+                                <div className="ots-video-control circle end-call" onClick={() => this.endCall()} />
+                            }
+                        </div>
                     </div>
-                    <div className='col-lg-12'>
-                        <button className="" onClick={() => this.startCall()} > Start sharing your video </button>
-
+                    <div className='row'>
+                        <div className='col-lg-5 start-call'>
+                            {this.state.isActive ?
+                                this.state.isOnCall ?
+                                    <button disabled className='btn btn-success'> On Call </button>
+                                    :
+                                    <button className='btn btn-primary' onClick={() => this.startCall()} >
+                                        Start sharing your video </button> :
+                                <button className='btn btn-warning' disabled> Loading.... </button>
+                            }
+                        </div>
                     </div>
                 </div>
-                {/* }
-                {this.state.isPublisher &&
-                    <div>test</div>
-                } */}
             </div>
         );
     }
