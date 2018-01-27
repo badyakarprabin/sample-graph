@@ -116,7 +116,7 @@ class Opentok extends React.Component {
                     </div>
                     <div className='row'>
                         <div id='controls' className='col-lg-5 App-control-container'>
-                            {this.setState.isOnCall &&
+                            {this.state.isOnCall &&
                                 <div className="ots-video-control circle end-call" onClick={() => this.endCall()} />
                             }
                         </div>
