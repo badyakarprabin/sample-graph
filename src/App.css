@@ -82,6 +82,8 @@ body {
 }
 
 .App-control-container {
+    position: relative;
+    top: -84px;
     display: flex;
     text-align: center;
     align-items: center;
@@ -106,6 +108,11 @@ body {
     cursor: pointer;
 }
 
+.App-control-container .ots-video-control.end-call {
+    background-image: url(https://assets.tokbox.com/solutions/images/icon-hang-up.png);
+    background-color: red;
+}
+
 .App-video-container {
     position: relative;
     width: 100%;
@@ -115,12 +122,16 @@ body {
     align-items: center;
 }
 
-#cameraPublisherContainer {
+.App-control-container .ots-video-control.video.muted {
+    background-image: url(https://assets.tokbox.com/solutions/images/icon-no-video.png);
+}
+
+.publisherContainer {
     width: 500px;
     height: 400px;
 }
 
-#cameraSubscriberContainer{
+.subscriberContainer{
     width: 100px;
     height: 100px;
 }
@@ -128,4 +139,13 @@ body {
 .ots-text-chat-container {
     width: 300px;
     margin-top: -20px;
+}
+
+.overlay {
+    position: absolute;
+    width: 461px;
+    height: 400px;
+    background: black;
+    text-align: center;
+    color: white;
 }
