@@ -102,7 +102,7 @@ class Opentok extends React.Component {
 
                     <div className='overlay'></div>
                     <div className='row'>
-                        <div className='col-lg-5'>
+                        <div className='col-lg-5 col-xs-12'>
                             <div className="App-video-container">
                                 <div id="cameraPublisherContainer" className='publisherContainer' />
                             </div>
