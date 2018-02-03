@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@amcharts/amcharts3-react": "^3.0.4",
+    "animate.css": "^3.5.2",
     "bootstrap": "3",
     "classnames": "^2.2.5",
     "gh-pages": "^1.1.0",

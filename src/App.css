@@ -1,28 +1,3 @@
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .header {
   text-shadow: #222;
   text-align: center;
@@ -83,12 +58,15 @@ body {
 
 .App-control-container {
     position: relative;
-    top: -84px;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+}
+
+.app-container{
+    top: -84px;    
 }
 
 .App-control-container.hidden {
@@ -131,6 +109,11 @@ body {
     height: 400px;
 }
 
+.text-info{
+    font-size: 14px;
+    color: red;
+    text-align: center;
+}
 .subscriberContainer{
     width: 100px;
     height: 100px;
@@ -143,7 +126,6 @@ body {
 
 .overlay {
     position: absolute;
-    width: 458px;
     height: 400px;
     background: black;
     text-align: center;
