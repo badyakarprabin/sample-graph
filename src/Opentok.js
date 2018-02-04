@@ -64,17 +64,20 @@ class Opentok extends React.Component {
                     isOnCall: false,
                 })
             });
-        // otCore.on('streamCreated', (event) => {
-        //     console.log('test', event)
-        //     this.setState({
-        //         isSubscriber: true
-        //     })
-        //     otCore.subscribe(event.stream)
-        // });
-    }
+        otCore.on('streamCreated', (event) => {
+            this.setState({
+                isSubscriber: true
+            })
+            otCore.subscribe(event.stream)
+        });
+        otCore.on('streamDestroyed', (event) => {
+            console.log('destryoed');
+            this.setState({
+                isSubscriber: false
+            })
+            otCore.unsubscribe(event.stream)
+        });
 
-    componentWillUnmount() {
-        this.sessionHelper.disconnect();
     }
 
     startCall() {
@@ -115,17 +118,21 @@ class Opentok extends React.Component {
                 <div className='container'>
                     <div className='col-lg-12'>
                         <div className='row'>
-                            <div className={show ? 'col-lg-5 col-xs-12' : ''}>
+                            <div className={show ? 'col-lg-5 col-xs-12' : ""}>
                                 <div className="App-video-container">
                                     {isOnCall && <div className='text-info'> You on live </div>}
                                     <div id="cameraPublisherContainer"
                                         className={isOnCall ? 'publisherContainer' : ''} />
                                 </div>
                             </div>
-                            <div className={show ? 'col-lg-2 col-xs-12' : isSubscriber ? 'col-lg-5' : ''}>
-                                {!isOnCall && isSubscriber && <div className='text-info'>You are currently watching, Click button to start sharing</div>}
-                                <div id="cameraSubscriberContainer"
-                                    className={isOnCall ? 'subscriberContainer' : isSubscriber ? 'publisherContainer' : ''} />
+                            <div className={show ? 'col-lg-2 col-xs-12' : isSubscriber ? 'col-lg-5 col-xs-12' : ''}>
+                                <div className="App-video-container">
+                                    {!isOnCall && isSubscriber && <div className='text-info col-xs-2'>You are currently watching, Click button to start sharing</div>}
+
+
+                                    <div id="cameraSubscriberContainer"
+                                        className={isOnCall ? 'subscriberContainer' : isSubscriber ? 'publisherContainer' : ''} />
+                                </div>
                             </div>
                             <div className='col-lg-offset-9'>
                                 <div id="chat" className="App-chat-container" />
@@ -135,7 +142,9 @@ class Opentok extends React.Component {
                         <div className='row app-container'>
                             <div id='controls' className='col-lg-5 App-control-container'>
                                 {this.state.isOnCall &&
-                                    <div className="ots-video-control circle end-call" onClick={() => this.endCall()} />
+                                    <div>
+                                        <div className="ots-video-control circle end-call" onClick={() => this.endCall()} />
+                                    </div>
                                 }
                             </div>
                         </div>
